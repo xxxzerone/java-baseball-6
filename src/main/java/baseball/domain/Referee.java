@@ -28,7 +28,9 @@ public class Referee {
             message = strike + "스트라이크";
         } else if (ball > 0 && strike == 0) {
             message = ball + "볼";
-        }  else {
+        } else if (strike == 0 && ball == 0) {
+            message = "낫싱";
+        } else {
             message = ball + "볼 " + strike + "스트라이크";
         }
         return message;

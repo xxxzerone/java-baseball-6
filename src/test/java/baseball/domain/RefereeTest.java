@@ -62,4 +62,13 @@ class RefereeTest {
 
         assertThat(Referee.compare(computer, player)).isEqualTo("1볼 1스트라이크");
     }
+
+    @Test
+    @DisplayName("낫싱")
+    void nothing() {
+        Player player = new Player(List.of(new Number(2), new Number(7), new Number(5)));
+
+        assertThat(Referee.compare(computer, player)).isEqualTo("낫싱");
+    }
+
 }
