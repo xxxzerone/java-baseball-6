@@ -18,7 +18,7 @@ public class InputView {
         System.out.println(INPUT_NUMBER_MESSAGE);
 
         String input = Console.readLine();
-        if (!Validation.isThreeNumber(input)) {
+        if (!Validation.isSize(input)) {
             throw new IllegalArgumentException("3개의 숫자만 입력 가능합니다.");
         }
         return input;

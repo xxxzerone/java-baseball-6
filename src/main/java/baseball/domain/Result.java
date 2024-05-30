@@ -24,4 +24,12 @@ public class Result {
     public int hashCode() {
         return Objects.hash(strike, ball);
     }
+
+    public int getBall() {
+        return ball;
+    }
+
+    public int getStrike() {
+        return strike;
+    }
 }
