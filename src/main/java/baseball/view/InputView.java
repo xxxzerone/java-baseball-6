@@ -1,5 +1,7 @@
 package baseball.view;
 
+import baseball.util.ParseNumber;
+import baseball.util.Validation;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
@@ -14,11 +16,21 @@ public class InputView {
 
     public String read() {
         System.out.println(INPUT_NUMBER_MESSAGE);
-        return Console.readLine();
+
+        String input = Console.readLine();
+        if (!Validation.isThreeNumber(input)) {
+            throw new IllegalArgumentException("3개의 숫자만 입력 가능합니다.");
+        }
+        return input;
     }
 
-    public String readContinue() {
+    public int readContinue() {
         System.out.println(CONTINUE_MESSAGE);
-        return Console.readLine();
+
+        String input = Console.readLine();
+        if (!Validation.isContinueNumber(input)) {
+            throw new IllegalArgumentException("1 or 2 숫자만 가능합니다.");
+        }
+        return ParseNumber.parseNumber(input);
     }
 }
