@@ -28,7 +28,7 @@ class RefereeTest {
     void threeStrike() {
         Player player = new Player(List.of(n1, n2, n3));
 
-        assertThat(Referee.compare(computer, player)).isEqualTo("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        assertThat(Referee.compare(computer, player)).isEqualTo(new Result(3, 0));
     }
 
     @Test
@@ -36,7 +36,7 @@ class RefereeTest {
     void twoStrike() {
         Player player = new Player(List.of(n1, n2, new Number(5)));
 
-        assertThat(Referee.compare(computer, player)).isEqualTo("2스트라이크");
+        assertThat(Referee.compare(computer, player)).isEqualTo(new Result(2, 0));
     }
 
     @Test
@@ -44,7 +44,7 @@ class RefereeTest {
     void twoBall() {
         Player player = new Player(List.of(new Number(5), n1, n2));
 
-        assertThat(Referee.compare(computer, player)).isEqualTo("2볼");
+        assertThat(Referee.compare(computer, player)).isEqualTo(new Result(0, 2));
     }
 
     @Test
@@ -52,7 +52,7 @@ class RefereeTest {
     void twoBall_oneStrike() {
         Player player = new Player(List.of(n1, n3, n2));
 
-        assertThat(Referee.compare(computer, player)).isEqualTo("2볼 1스트라이크");
+        assertThat(Referee.compare(computer, player)).isEqualTo(new Result(1, 2));
     }
 
     @Test
@@ -60,7 +60,7 @@ class RefereeTest {
     void oneBall_oneStrike() {
         Player player = new Player(List.of(n3, n2, new Number(5)));
 
-        assertThat(Referee.compare(computer, player)).isEqualTo("1볼 1스트라이크");
+        assertThat(Referee.compare(computer, player)).isEqualTo(new Result(1, 1));
     }
 
     @Test
@@ -68,7 +68,7 @@ class RefereeTest {
     void nothing() {
         Player player = new Player(List.of(new Number(2), new Number(7), new Number(5)));
 
-        assertThat(Referee.compare(computer, player)).isEqualTo("낫싱");
+        assertThat(Referee.compare(computer, player)).isEqualTo(new Result(0, 0));
     }
 
 }
