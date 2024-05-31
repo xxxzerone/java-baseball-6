@@ -10,7 +10,20 @@ public class Computer {
         this.numbers = numbers;
     }
 
-    public List<Number> getNumbers() {
-        return numbers;
+    public Result compare(Player player) {
+        int strike = 0;
+        int ball = 0;
+
+        List<Number> playerNumbers = player.getNumbers();
+        for (int i = 0; i < numbers.size(); i++) {
+            Number playerNumber = playerNumbers.get(i);
+            if (numbers.get(i).equals(playerNumber)) {
+                strike++;
+            } else if (numbers.contains(playerNumber)) {
+                ball++;
+            }
+        }
+
+        return new Result(strike, ball);
     }
 }

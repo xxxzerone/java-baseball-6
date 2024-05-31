@@ -11,9 +11,9 @@ public class RandomNumber {
     public static List<Number> generateComputer() {
         List<Number> randomNumbers = new ArrayList<>();
         while (randomNumbers.size() < 3) {
-            int randomNumber = generate();
+            Number randomNumber = new Number(generate());
             if (!randomNumbers.contains(randomNumber)) {
-                randomNumbers.add(new Number(randomNumber));
+                randomNumbers.add(randomNumber);
             }
         }
         return randomNumbers;

@@ -29,7 +29,7 @@ public class InputView {
 
         String input = Console.readLine();
         if (!Validation.isContinueNumber(input)) {
-            throw new IllegalArgumentException("1 or 2 숫자만 가능합니다.");
+            throw new IllegalArgumentException("1 or 2 숫자만 입력 가능합니다.");
         }
         return ParseNumber.parseNumber(input);
     }

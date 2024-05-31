@@ -33,7 +33,7 @@ public class BaseballController {
                     throw new IllegalArgumentException("중복된 숫자를 입력하셨습니다.");
                 }
 
-                Result result = Referee.compare(computer, new Player(numbers));
+                Result result = Referee.check(computer, new Player(numbers));
                 OUTPUT_VIEW.printResult(result);
 
                 if (result.getStrike() == THREE_STRIKE) {
